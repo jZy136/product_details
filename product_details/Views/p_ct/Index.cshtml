@@ -1,0 +1,35 @@
+﻿@model IEnumerable<product_details.p_ct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_dt.p_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_num)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_dt.p_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_num)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.c_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.c_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.c_id })
+        </td>
+    </tr>
+}
+
+</table>

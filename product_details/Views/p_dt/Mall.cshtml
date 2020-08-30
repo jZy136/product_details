@@ -1,0 +1,36 @@
+﻿@model IEnumerable<product_details.p_dt>
+
+@{
+    ViewBag.Title = "Mall";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+<div class="col-md-3" style="padding-top: 4px;">
+    <div class="col-md-12">
+        <img style="width:150px;height:auto" src="~/Img/@Html.DisplayFor(modelItem => item.p_img)" />
+    </div>
+    <div class="col-md-6">
+        &yen;@Html.DisplayFor(modelItem => item.p_price)
+    </div>
+    <div class="col-md-6">
+        @Html.DisplayFor(modelItem => item.p_num)
+    </div>
+    <div class="col-md-12">
+        @Html.DisplayFor(modelItem => item.p_name)
+    </div>
+    <div class="col-md-6">
+
+    </div>
+    @using (Html.BeginForm("AddToCart","p_dt"))
+    {
+    <div class="col-md-6">
+        @Html.HiddenFor(modelItem => item.p_id)
+        <input type="submit" value="购买" class="form-control col-md-2" />
+    </div>
+    }
+</div>
+}
+

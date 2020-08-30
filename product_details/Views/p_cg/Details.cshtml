@@ -1,0 +1,26 @@
+﻿@model product_details.p_cg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>p_cg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cg_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cg_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cg_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

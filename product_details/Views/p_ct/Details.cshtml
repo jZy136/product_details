@@ -1,0 +1,35 @@
+﻿@model product_details.p_ct
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>p_ct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.p_dt.p_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_dt.p_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_num)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.c_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

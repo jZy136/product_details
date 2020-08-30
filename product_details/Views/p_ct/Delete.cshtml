@@ -1,0 +1,41 @@
+﻿@model product_details.p_ct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>p_ct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.p_dt.p_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_dt.p_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_num)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

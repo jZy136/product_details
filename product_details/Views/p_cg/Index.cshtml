@@ -1,0 +1,33 @@
+﻿@model IEnumerable<product_details.p_cg>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cg_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/p_dt/Index?cidString=@Html.DisplayFor(modelItem => item.cg_id)">@Html.DisplayFor(modelItem => item.cg_name)</a>
+</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.cg_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.cg_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.cg_id })
+        </td>
+    </tr>
+}
+
+</table>
