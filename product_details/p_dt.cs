@@ -26,7 +26,7 @@ namespace product_details
         public string p_img { get; set; }
 
         public virtual p_cg p_cg { get; set; }
-
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<p_ct> p_ct { get; set; }
 

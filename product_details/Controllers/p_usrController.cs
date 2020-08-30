@@ -11,128 +11,107 @@ using product_details;
 
 namespace product_details.Controllers
 {
-    public class p_ctController : Controller
+    public class p_usrController : Controller
     {
         private Model1 db = new Model1();
 
-        // GET: p_ct
+        // GET: p_usr
         public async Task<ActionResult> Index()
         {
-            var p_ct = db.p_ct.Include(p => p.p_dt);
-            return View(await p_ct.ToListAsync());
+            return View(await db.p_usr.ToListAsync());
         }
 
-        public async Task<ActionResult> Cart()
-        {
-            var p_ct = db.p_ct.Include(p => p.p_dt);
-            return View(await p_ct.ToListAsync());
-        }
-
-        public ActionResult AddToOrder(int id)
-        {
-            p_od oder = new p_od();
-            oder.p_id = id;
-            oder.o_num = 1;
-            db.p_od.Add(oder);
-            db.SaveChanges();
-            return RedirectToAction("Cart");
-        }
-
-        // GET: p_ct/Details/5
+        // GET: p_usr/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            p_ct p_ct = await db.p_ct.FindAsync(id);
-            if (p_ct == null)
+            p_usr p_usr = await db.p_usr.FindAsync(id);
+            if (p_usr == null)
             {
                 return HttpNotFound();
             }
-            return View(p_ct);
+            return View(p_usr);
         }
 
-        // GET: p_ct/Create
+        // GET: p_usr/Create
         public ActionResult Create()
         {
-            ViewBag.p_id = new SelectList(db.p_dt, "p_id", "p_name");
             return View();
         }
 
-        // POST: p_ct/Create
+        // POST: p_usr/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "c_id,p_id,c_num")] p_ct p_ct)
+        public async Task<ActionResult> Create([Bind(Include = "u_id,u_name,u_pwd")] p_usr p_usr)
         {
             if (ModelState.IsValid)
             {
-                db.p_ct.Add(p_ct);
+                db.p_usr.Add(p_usr);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.p_id = new SelectList(db.p_dt, "p_id", "p_name", p_ct.p_id);
-            return View(p_ct);
+            return View(p_usr);
         }
 
-        // GET: p_ct/Edit/5
+        // GET: p_usr/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            p_ct p_ct = await db.p_ct.FindAsync(id);
-            if (p_ct == null)
+            p_usr p_usr = await db.p_usr.FindAsync(id);
+            if (p_usr == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.p_id = new SelectList(db.p_dt, "p_id", "p_name", p_ct.p_id);
-            return View(p_ct);
+            return View(p_usr);
         }
 
-        // POST: p_ct/Edit/5
+        // POST: p_usr/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "c_id,p_id,c_num")] p_ct p_ct)
+        public async Task<ActionResult> Edit([Bind(Include = "u_id,u_name,u_pwd")] p_usr p_usr)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(p_ct).State = EntityState.Modified;
+                db.Entry(p_usr).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.p_id = new SelectList(db.p_dt, "p_id", "p_name", p_ct.p_id);
-            return View(p_ct);
+            return View(p_usr);
         }
 
-        // GET: p_ct/Delete/5
+        // GET: p_usr/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            p_ct p_ct = await db.p_ct.FindAsync(id);
-            if (p_ct == null)
+            p_usr p_usr = await db.p_usr.FindAsync(id);
+            if (p_usr == null)
             {
                 return HttpNotFound();
             }
-            return View(p_ct);
+            return View(p_usr);
         }
 
-        // POST: p_ct/Delete/5
+        // POST: p_usr/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            p_ct p_ct = await db.p_ct.FindAsync(id);
-            db.p_ct.Remove(p_ct);
+            p_usr p_usr = await db.p_usr.FindAsync(id);
+            db.p_usr.Remove(p_usr);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

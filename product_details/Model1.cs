@@ -1,4 +1,4 @@
-    namespace product_details
+namespace product_details
 {
     using System;
     using System.Data.Entity;
@@ -16,6 +16,7 @@
         public virtual DbSet<p_ct> p_ct { get; set; }
         public virtual DbSet<p_dt> p_dt { get; set; }
         public virtual DbSet<p_od> p_od { get; set; }
+        public virtual DbSet<p_usr> p_usr { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,6 +46,14 @@
                 .HasMany(e => e.p_od)
                 .WithRequired(e => e.p_dt)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<p_usr>()
+                .Property(e => e.u_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<p_usr>()
+                .Property(e => e.u_pwd)
+                .IsUnicode(false);
         }
     }
 }

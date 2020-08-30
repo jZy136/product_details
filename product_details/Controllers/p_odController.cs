@@ -22,6 +22,12 @@ namespace product_details.Controllers
             return View(await p_od.ToListAsync());
         }
 
+        public async Task<ActionResult> Order()
+        {
+            var p_od = db.p_od.Include(p => p.p_dt);
+            return View(await p_od.ToListAsync());
+        }
+
         // GET: p_od/Details/5
         public async Task<ActionResult> Details(int? id)
         {

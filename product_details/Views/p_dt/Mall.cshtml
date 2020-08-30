@@ -24,13 +24,9 @@
     <div class="col-md-6">
 
     </div>
-    @using (Html.BeginForm("AddToCart","p_dt"))
-    {
-    <div class="col-md-6">
-        @Html.HiddenFor(modelItem => item.p_id)
-        <input type="submit" value="购买" class="form-control col-md-2" />
-    </div>
-    }
+        <div class="col-md-6">
+            @Html.ActionLink("AddToCart", "AddToCart", new {p_id = item.p_id})
+        </div>
 </div>
 }
 

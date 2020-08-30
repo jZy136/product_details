@@ -133,6 +133,8 @@
     <Compile Include="Controllers\p_ctController.cs" />
     <Compile Include="Controllers\p_dtController.cs" />
     <Compile Include="Controllers\p_odController.cs" />
+    <Compile Include="Controllers\p_sdController.cs" />
+    <Compile Include="Controllers\p_usrController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,6 +144,15 @@
     <Compile Include="p_ct.cs" />
     <Compile Include="p_dt.cs" />
     <Compile Include="p_od.cs" />
+    <Compile Include="p_usr.cs" />
+    <Compile Include="ViewModel\p_sd.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -156,6 +167,7 @@
     <Content Include="Img\header.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -203,6 +215,14 @@
     <Content Include="Views\p_ct\Details.cshtml" />
     <Content Include="Views\p_ct\Edit.cshtml" />
     <Content Include="Views\p_ct\Index.cshtml" />
+    <Content Include="Views\p_ct\Cart.cshtml" />
+    <Content Include="Views\p_od\Order.cshtml" />
+    <Content Include="Views\p_sd\Index.cshtml" />
+    <Content Include="Views\p_usr\Create.cshtml" />
+    <Content Include="Views\p_usr\Delete.cshtml" />
+    <Content Include="Views\p_usr\Details.cshtml" />
+    <Content Include="Views\p_usr\Edit.cshtml" />
+    <Content Include="Views\p_usr\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<product_details.p_od>
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_dt.p_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.o_num)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_dt.p_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_num)
+        </td>
+    </tr>
+}
+
+</table>

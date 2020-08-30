@@ -48,19 +48,16 @@ namespace product_details.Controllers
             return View(p_dt.ToList());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddToCart([Bind(Include = "c_id,p_id,c_num")] p_ct p_ct)
-        {
-            if (ModelState.IsValid)
-            {
-                db.p_ct.Add(p_ct);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+        
 
-            ViewBag.p_id = new SelectList(db.p_dt, "p_id", "p_name", p_ct.p_id);
-            return View(p_ct);
+        public ActionResult AddToCart(int p_id)
+        {
+            p_ct cart = new p_ct();
+            cart.p_id = p_id;
+            cart.c_num = 1;
+            db.p_ct.Add(cart);
+            db.SaveChanges();
+            return RedirectToAction("Mall");
         }
 
         // GET: p_dt/Details/5

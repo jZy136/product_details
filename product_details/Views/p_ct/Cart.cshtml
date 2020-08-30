@@ -1,0 +1,33 @@
+﻿@model IEnumerable<product_details.p_ct>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_mallLayout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_dt.p_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_num)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_dt.p_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_num)
+        </td>
+        <td>
+            @Html.ActionLink("确认订单", "AddToOrder", new { id=item.c_id })
+        </td>
+    </tr>
+}
+
+</table>
